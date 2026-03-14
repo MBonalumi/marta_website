@@ -1,19 +1,29 @@
 ---
 const services = [
   {
-    title: 'Consulenza Individuale',
-    description: 'Un percorso personalizzato per affrontare ansia, stress, difficoltà relazionali o momenti di crisi personale.',
-    icon: '👤',
+    title: 'Mindfulness, Rilassamento e Respirazione',
+    description: 'Scopri tecniche per una vita equilibrata - di gruppo o individuale.',
+    icon: '🧘‍♀️',
   },
   {
-    title: 'Benessere e Risorse',
-    description: 'Riscopri le tue potenzialità e impara a gestire l\'autocritica per vivere una vita più autentica e consapevole.',
+    title: 'Orientamento e Scelte di carriera',
+    description: 'Supporto alla scelta, CV, LinkedIn, preparazione al colloquio, Life design, pianificazione obiettivi.',
+    icon: '🧭',
+  },
+  {
+    title: 'Percorso di accompagnamento allo studio',
+    description: 'Metodo di studio, organizzazione, gestione del perfezionismo e pressione da performance.',
+    icon: '📚',
+  },
+  {
+    title: 'Colloqui di supporto psicologico',
+    description: 'Colloqui individuali tarati sulle tue necessità e fatiche.',
+    icon: '💬',
+  },
+  {
+    title: 'Percorso di potenziamento del benessere',
+    description: 'Percorsi personalizzati basati su dispositivi del benessere in linea con la letteratura scientifica.',
     icon: '✨',
-  },
-  {
-    title: 'Intelligenza Emotiva',
-    description: 'Impara a conoscere, comprendere e gestire le tue emozioni per migliorare il tuo equilibrio e le tue relazioni.',
-    icon: '🧠',
   },
 ];
 ---
@@ -38,7 +48,7 @@ const services = [
             {service.description}
           </p>
           <div class="mt-8">
-            <a href="#contatti" class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
+            <a href={`?service=${encodeURIComponent(service.title)}#contatti`} class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
               Scopri di più
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

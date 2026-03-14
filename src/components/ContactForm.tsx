@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    // Read the 'service' parameter from the URL if it exists
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service');
+    if (service) {
+      setMessage(`Salve Marta,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,6 +85,8 @@ const ContactForm: React.FC = () => {
           id="message"
           name="message"
           rows={5}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-brand-beige/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/50 transition-all resize-none"
           placeholder="Come posso aiutarti?"
         ></textarea>
