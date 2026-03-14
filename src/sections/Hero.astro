@@ -11,26 +11,35 @@
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-3xl">
-      <h2 class="text-sm uppercase tracking-widest text-brand-sage font-semibold mb-4 animate-fade-in">
+      <h2
+        class="text-sm uppercase tracking-widest text-brand-sage font-semibold mb-4 animate-fade-in"
+      >
         Psicologa per il benessere
       </h2>
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-brand-charcoal mb-8 leading-tight animate-slide-up">
-        MENO AUTOCRITICA,<br />
-        <span class="relative z-10 text-brand-sage italic whitespace-nowrap">PIÙ CONSAPEVOLEZZA</span>
+      <h1
+        class="text-[9.5vw] tracking-tighter leading-tight sm:text-5xl sm:tracking-normal md:text-6xl lg:text-7xl font-serif font-bold text-brand-charcoal mb-8 animate-slide-up sm:break-normal"
+      >
+        <span class="md:whitespace-nowrap">MENO <br class="md:hidden" /> AUTOCRITICA</span> <br />
+        <span class="relative z-10 text-brand-sage italic md:whitespace-nowrap"
+          >PIÙ <br class="md:hidden" /> CONSAPEVOLEZZA</span
+        >
       </h1>
-      <p class="text-lg md:text-xl text-brand-charcoal/70 mb-10 max-w-xl leading-relaxed animate-fade-in-delay">
-        Ti accompagno in un percorso di scoperta delle tue risorse per vivere una vita più serena, autentica e consapevole.
+      <p
+        class="text-lg md:text-xl text-brand-charcoal/70 mb-10 max-w-xl leading-relaxed animate-fade-in-delay"
+      >
+        <!-- Ti accompagno in un percorso di scoperta delle tue risorse per vivere una vita più serena, autentica e consapevole. -->
+        Cambia il modo di vederti e scopri le tue risorse.
       </p>
-      
+
       <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-delay">
-        <a 
-          href="#servizi" 
+        <a
+          href="#servizi"
           class="bg-brand-sage text-white px-8 py-4 rounded-full font-medium text-center hover:bg-opacity-90 transition-all duration-300 shadow-lg shadow-brand-sage/20"
         >
           Scopri i servizi
         </a>
-        <a 
-          href="#contatti" 
+        <a
+          href="#contatti"
           class="border-2 border-brand-sage text-brand-sage px-8 py-4 rounded-full font-medium text-center hover:bg-brand-sage hover:text-white transition-all duration-300"
         >
           Prenota un colloquio
@@ -40,24 +49,52 @@
   </div>
 
   <!-- Scroll down indicator -->
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+  <div
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
     </svg>
   </div>
 </section>
 
 <style>
-  .animate-fade-in { animation: fadeIn 1s ease-out; }
-  .animate-slide-up { animation: slideUp 1s ease-out; }
-  .animate-fade-in-delay { animation: fadeIn 1.5s ease-out; }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 1s ease-out;
+  }
+  .animate-fade-in-delay {
+    animation: fadeIn 1.5s ease-out;
+  }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
