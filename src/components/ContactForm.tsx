@@ -1,107 +1,64 @@
 import React, { useState, useEffect } from 'react';
 
 const ContactForm: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
+  const [emailData, setEmailData] = useState({ subject: '', body: '' });
+  const recipient = "martadegani.md@gmail.com";
 
   useEffect(() => {
-    // Read the 'service' parameter from the URL if it exists
     const params = new URLSearchParams(window.location.search);
     const service = params.get('service');
+
+    let subject = "Richiesta informazioni";
+    let body = "Buongiorno,\n\n";
+
     if (service === 'Prenota colloquio') {
-      setMessage(`Buongiorno,\n\nvorrei prenotare un colloquio conoscitivo per... \n(raccontami brevemente il motivo di contatto)\n\n`);
+      subject = "Prenotazione colloquio conoscitivo";
+      body += "vorrei prenotare un colloquio conoscitivo per... \n(raccontami brevemente il motivo di contatto)\n\n";
     } else if (service) {
-      setMessage(`Buongiorno,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
+      subject = `${service}`;
+      body += `vorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`;
     }
+
+    setEmailData({ subject, body });
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('submitting');
-
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-    }, 1500);
-  };
-
-  if (status === 'success') {
-    return (
-      <div className="bg-brand-sage/10 p-12 rounded-3xl text-center border border-brand-sage/20 animate-fade-in">
-        <div className="w-16 h-16 bg-brand-sage text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-          ✓
-        </div>
-        <h3 className="text-2xl font-serif font-bold text-brand-charcoal mb-4">Grazie per il messaggio!</h3>
-        <p className="text-brand-charcoal/70">Ti risponderò il prima possibile.</p>
-        <button
-          onClick={() => setStatus('idle')}
-          className="mt-8 text-brand-sage font-semibold underline"
-        >
-          Invia un altro messaggio
-        </button>
-      </div>
-    );
-  }
+  const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-brand-charcoal mb-2">Nome</label>
-          <input
-            required
-            type="text"
-            id="name"
-            name="name"
-            className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-brand-beige/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/50 transition-all"
-            placeholder="Il tuo nome"
-          />
-        </div>
-        <div>
-          <label htmlFor="surname" className="block text-sm font-medium text-brand-charcoal mb-2">Cognome</label>
-          <input
-            required
-            type="text"
-            id="surname"
-            name="surname"
-            className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-brand-beige/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/50 transition-all"
-            placeholder="Il tuo cognome"
-          />
-        </div>
+    <div className="flex flex-col h-full justify-center space-y-8 animate-fade-in">
+      <div className="space-y-4">
+        <h3 className="text-2xl font-serif font-bold text-brand-charcoal">
+          Pronta per iniziare?
+        </h3>
+        <p className="text-brand-charcoal/70 leading-relaxed">
+          Clicca il bottone qui sotto per scrivermi direttamente. Il tuo client di posta si aprirà con un messaggio pre-compilato.
+        </p>
       </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-brand-charcoal mb-2">Email</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-brand-beige/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/50 transition-all"
-          placeholder="la-tua@email.it"
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-brand-charcoal mb-2">Messaggio</label>
-        <textarea
-          required
-          id="message"
-          name="message"
-          rows={5}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-brand-beige/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/50 transition-all resize-none"
-          placeholder="Come posso aiutarti?"
-        ></textarea>
-      </div>
-      <button
-        disabled={status === 'submitting'}
-        type="submit"
-        className="w-full bg-brand-charcoal text-white py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all disabled:opacity-50"
+
+      <a
+        href={mailtoUrl}
+        className="inline-flex items-center justify-center w-full bg-brand-charcoal text-white py-5 rounded-2xl font-bold hover:bg-opacity-90 transition-all shadow-xl shadow-brand-charcoal/10 group"
       >
-        {status === 'submitting' ? 'Invio in corso...' : 'Invia messaggio'}
-      </button>
-    </form>
+        <span>Invia Email</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 ml-3 group-hover:translate-x-1 transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <div className="pt-6 border-t border-brand-sage/10 text-sm text-brand-charcoal/50 italic">
+        <p>
+          * Questo metodo garantisce la massima privacy: i tuoi dati non passano attraverso server di terze parti e arrivano direttamente nella mia casella email.
+        </p>
+      </div>
+    </div>
   );
 };
+
 
 export default ContactForm;

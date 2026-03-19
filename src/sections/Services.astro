@@ -59,7 +59,7 @@ const services = [
             </p>
             <div class="mt-8">
               <a
-                href={`?service=${encodeURIComponent(service.title)}#contatti`}
+                href={`mailto:martadegani.md@gmail.com?subject=${encodeURIComponent(`Informazioni su: ${service.title}`)}&body=${encodeURIComponent(`Buongiorno,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service.title}".\n\n`)}`}
                 class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
               >
                 Contattami
@@ -79,6 +79,7 @@ const services = [
                 </svg>
               </a>
             </div>
+
           </div>
         ))
       }
