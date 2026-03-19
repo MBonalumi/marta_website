@@ -1,35 +1,71 @@
 ---
-import ContactForm from '../components/ContactForm';
+import ContactForm from "../components/ContactForm";
 ---
 
 <section id="contatti" class="py-24 bg-white">
   <div class="container mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-20">
-      
       <div>
-        <h2 class="text-4xl font-serif font-bold text-brand-charcoal mb-8">Inizia il tuo percorso</h2>
+        <h2 class="text-4xl font-serif font-bold text-brand-charcoal mb-8">
+          Inizia il tuo percorso
+        </h2>
         <p class="text-brand-charcoal/70 mb-10 text-lg leading-relaxed">
-          Puoi contattarmi via email, telefono oppure compilando il modulo. Sarò lieta di risponderti al più presto per fissare un primo colloquio conoscitivo.
+          Puoi contattarmi via email. Sarò lieta di risponderti al più presto
+          per fissare un primo colloquio conoscitivo.
         </p>
 
         <div class="space-y-8">
           <div class="flex items-start gap-6">
-            <div class="w-12 h-12 bg-brand-sage/10 rounded-xl flex items-center justify-center text-brand-sage shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <div
+              class="w-12 h-12 bg-brand-sage/10 rounded-xl flex items-center justify-center text-brand-sage shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
               </svg>
             </div>
             <div>
               <h4 class="font-bold text-brand-charcoal mb-1">Email</h4>
-              <a href="mailto:martadegani.md@gmail.com" class="text-brand-sage hover:underline">martadegani.md@gmail.com</a>
+              <a
+                href="mailto:martadegani.md@gmail.com"
+                class="text-brand-sage hover:underline"
+                >martadegani.md@gmail.com</a
+              >
             </div>
           </div>
 
           <div class="flex items-start gap-6">
-            <div class="w-12 h-12 bg-brand-sage/10 rounded-xl flex items-center justify-center text-brand-sage shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <div
+              class="w-12 h-12 bg-brand-sage/10 rounded-xl flex items-center justify-center text-brand-sage shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
             </div>
             <div>
@@ -40,10 +76,11 @@ import ContactForm from '../components/ContactForm';
         </div>
       </div>
 
-      <div class="bg-brand-beige/20 p-8 md:p-12 rounded-3xl border border-brand-sage/10">
+      <div
+        class="bg-brand-beige/20 p-8 md:p-12 rounded-3xl border border-brand-sage/10"
+      >
         <ContactForm client:visible />
       </div>
-
     </div>
   </div>
 </section>

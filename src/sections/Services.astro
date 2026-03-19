@@ -1,29 +1,33 @@
 ---
 const services = [
   {
-    title: 'Mindfulness, Rilassamento e Respirazione',
-    description: 'Scopri tecniche per una vita equilibrata - di gruppo o individuale.',
-    icon: '🧘‍♀️',
+    title: "Mindfulness, Rilassamento e Respirazione",
+    description:
+      "Scopri tecniche per una vita equilibrata - di gruppo o individuale.",
+    icon: "🧘‍♀️",
   },
   {
-    title: 'Orientamento e Scelte di carriera',
-    description: 'Supporto alla scelta, CV, LinkedIn, preparazione al colloquio, Life design, pianificazione obiettivi.',
-    icon: '🧭',
+    title: "Orientamento e Scelte di carriera",
+    description:
+      "Supporto alla scelta, CV, LinkedIn, preparazione al colloquio, Life design, pianificazione obiettivi.",
+    icon: "🧭",
   },
   {
-    title: 'Percorso di accompagnamento allo studio',
-    description: 'Metodo di studio, organizzazione, gestione del perfezionismo e pressione da performance.',
-    icon: '📚',
+    title: "Percorso di accompagnamento allo studio",
+    description:
+      "Metodo di studio, organizzazione, gestione del perfezionismo e pressione da performance.",
+    icon: "📚",
   },
   {
-    title: 'Colloqui di supporto psicologico',
-    description: 'Colloqui individuali tarati sulle tue necessità e fatiche.',
-    icon: '💬',
+    title: "Colloqui di supporto psicologico",
+    description: "Colloqui individuali tarati sulle tue necessità e fatiche.",
+    icon: "💬",
   },
   {
-    title: 'Percorso di potenziamento del benessere',
-    description: 'Percorsi personalizzati basati su dispositivi del benessere in linea con la letteratura scientifica.',
-    icon: '✨',
+    title: "Percorso di potenziamento del benessere",
+    description:
+      "Percorsi personalizzati basati su dispositivi del benessere in linea con la letteratura scientifica.",
+    icon: "✨",
   },
 ];
 ---
@@ -31,32 +35,53 @@ const services = [
 <section id="servizi" class="py-24 bg-brand-beige/50">
   <div class="container mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-4xl font-serif font-bold text-brand-charcoal mb-4">Servizi e Percorsi</h2>
+      <h2 class="text-4xl font-serif font-bold text-brand-charcoal mb-4">
+        Servizi e Percorsi
+      </h2>
       <p class="text-brand-charcoal/70">
-        Offro supporto psicologico mirato a favorire il benessere e la crescita personale.
+        Offro supporto psicologico mirato a favorire il benessere e la crescita
+        personale.
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
-      {services.map((service) => (
-        <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-sage/10 group hover:-translate-y-2">
-          <div class="text-4xl mb-6 bg-brand-beige w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-brand-sage transition-colors duration-300">
-            {service.icon}
+      {
+        services.map((service) => (
+          <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-sage/10 group hover:-translate-y-2">
+            <div class="text-4xl mb-6 bg-brand-beige w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-brand-sage transition-colors duration-300">
+              {service.icon}
+            </div>
+            <h3 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">
+              {service.title}
+            </h3>
+            <p class="text-brand-charcoal/70 leading-relaxed">
+              {service.description}
+            </p>
+            <div class="mt-8">
+              <a
+                href={`?service=${encodeURIComponent(service.title)}#contatti`}
+                class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
+              >
+                Contattami
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
-          <h3 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">{service.title}</h3>
-          <p class="text-brand-charcoal/70 leading-relaxed">
-            {service.description}
-          </p>
-          <div class="mt-8">
-            <a href={`?service=${encodeURIComponent(service.title)}#contatti`} class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
-              Scopri di più
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

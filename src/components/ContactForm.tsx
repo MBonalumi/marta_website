@@ -8,15 +8,17 @@ const ContactForm: React.FC = () => {
     // Read the 'service' parameter from the URL if it exists
     const params = new URLSearchParams(window.location.search);
     const service = params.get('service');
-    if (service) {
-      setMessage(`Salve Marta,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
+    if (service === 'Prenota colloquio') {
+      setMessage(`Buongiorno,\n\nvorrei prenotare un colloquio conoscitivo per... \n(raccontami brevemente il motivo di contatto)\n\n`);
+    } else if (service) {
+      setMessage(`Buongiorno,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
     }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
-    
+
     // Simulate API call
     setTimeout(() => {
       setStatus('success');
@@ -31,7 +33,7 @@ const ContactForm: React.FC = () => {
         </div>
         <h3 className="text-2xl font-serif font-bold text-brand-charcoal mb-4">Grazie per il messaggio!</h3>
         <p className="text-brand-charcoal/70">Ti risponderò il prima possibile.</p>
-        <button 
+        <button
           onClick={() => setStatus('idle')}
           className="mt-8 text-brand-sage font-semibold underline"
         >
