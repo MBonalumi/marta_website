@@ -1,0 +1,10 @@
+# Allow all crawlers to index the site
+User-agent: *
+Allow: /
+
+# Disallow admin and private paths
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://martadegani.it/sitemap.xml
