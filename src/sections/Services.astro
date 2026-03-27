@@ -31,7 +31,7 @@ const services = [
   },
 ];
 
-const servicesSchema = {
+const servicesSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ItemList",
   "itemListElement": services.map((service, index) => ({
@@ -47,7 +47,7 @@ const servicesSchema = {
       }
     }
   }))
-};
+});
 ---
 
 <section id="servizi" class="py-24 bg-brand-beige/50">
@@ -106,5 +106,75 @@ const servicesSchema = {
 </section>
 
 <script type="application/ld+json">
-  {JSON.stringify(servicesSchema)}
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "name": "Mindfulness, Rilassamento e Respirazione",
+        "description": "Scopri tecniche per una vita equilibrata - di gruppo o individuale.",
+        "provider": {
+          "@type": "Physician",
+          "name": "Marta Degani"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Orientamento e Scelte di carriera",
+        "description": "Supporto alla scelta, CV, LinkedIn, preparazione al colloquio, Life design, pianificazione obiettivi.",
+        "provider": {
+          "@type": "Physician",
+          "name": "Marta Degani"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "name": "Percorso di accompagnamento allo studio",
+        "description": "Metodo di studio, organizzazione, gestione del perfezionismo e pressione da performance.",
+        "provider": {
+          "@type": "Physician",
+          "name": "Marta Degani"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Service",
+        "name": "Colloqui di supporto psicologico",
+        "description": "Colloqui individuali tarati sulle tue necessità e fatiche.",
+        "provider": {
+          "@type": "Physician",
+          "name": "Marta Degani"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Service",
+        "name": "Percorso di potenziamento del benessere",
+        "description": "Percorsi personalizzati basati su dispositivi del benessere in linea con la letteratura scientifica.",
+        "provider": {
+          "@type": "Physician",
+          "name": "Marta Degani"
+        }
+      }
+    }
+  ]
+}
 </script>
