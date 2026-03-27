@@ -30,6 +30,24 @@ const services = [
     icon: "✨",
   },
 ];
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description,
+      "provider": {
+        "@type": "Physician",
+        "name": "Marta Degani"
+      }
+    }
+  }))
+};
 ---
 
 <section id="servizi" class="py-24 bg-brand-beige/50">
@@ -86,3 +104,7 @@ const services = [
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+  {JSON.stringify(servicesSchema)}
+</script>

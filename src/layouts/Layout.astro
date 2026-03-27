@@ -4,13 +4,54 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	lang?: string;
 }
 
-const { title, description = "Marta Degani - Psicologa per il benessere. Consulenza psicologica a Como, Pasturo e Online." } = Astro.props;
+const { title, description = "Marta Degani - Psicologa per il benessere. Consulenza psicologica a Como, Pasturo e Online.", lang = 'it' } = Astro.props;
+
+const businessSchema = {
+	"@context": "https://schema.org",
+	"@type": "Physician",
+	"name": "Marta Degani",
+	"medicalSpecialty": "Psychology",
+	"url": "https://martadegani.it",
+	"email": "martadegani.md@gmail.com",
+	"telephone": "+393473919327",
+	"areaServed": [
+		{ "@type": "Place", "name": "Como" },
+		{ "@type": "Place", "name": "Pasturo (LC)" },
+		{ "@type": "Place", "name": "Online" }
+	],
+	"image": "https://martadegani.it/images/martadegani.png",
+	"serviceType": [
+		"Mindfulness e Rilassamento",
+		"Orientamento e Scelte di Carriera",
+		"Percorso di Accompagnamento allo Studio",
+		"Colloqui di Supporto Psicologico",
+		"Percorso di Potenziamento del Benessere"
+	],
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Via Alessandro Manzoni 24",
+		"addressLocality": "Pasturo",
+		"addressRegion": "LC",
+		"postalCode": "23818",
+		"addressCountry": "IT"
+	},
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Via Santo Garovaglio 19",
+		"addressLocality": "Como",
+		"addressRegion": "CO",
+		"postalCode": "22100",
+		"addressCountry": "IT"
+	},
+	"knowsLanguage": "it"
+};
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -18,6 +59,9 @@ const { title, description = "Marta Degani - Psicologa per il benessere. Consule
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<script type="application/ld+json">
+			{JSON.stringify(businessSchema)}
+		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">

@@ -1,4 +1,36 @@
 ---
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "about": {
+    "@type": "Physician",
+    "name": "Marta Degani"
+  },
+  "contactOption": [
+    {
+      "@type": "ContactOption",
+      "contactType": "customer service",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+393473919327",
+        "contactType": "customer service",
+        "areaServed": ["IT"],
+        "availableLanguage": "it"
+      }
+    },
+    {
+      "@type": "ContactOption",
+      "contactType": "email support",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "martadegani.md@gmail.com",
+        "contactType": "email support",
+        "areaServed": ["IT"],
+        "availableLanguage": "it"
+      }
+    }
+  ]
+};
 ---
 
 
@@ -72,4 +104,8 @@
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+  {JSON.stringify(contactSchema)}
+</script>
 
