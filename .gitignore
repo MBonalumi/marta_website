@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # .agents folder
 .agents/
+
+# memory folder
+.memory/
+
+# implementation timeline
+implementation-timeline.md
