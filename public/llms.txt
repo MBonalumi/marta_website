@@ -1,0 +1,40 @@
+# LLM Context for Marta Degani - Psicologa
+
+## Business Overview
+Name: Marta Degani
+Profession: Psicologa (Psychologist)
+Language: Italian
+
+Marta Degani è una psicologa specializzata nella promozione del benessere psicologico, con studio a Pasturo (LC) e Como, e consulenze online. La sua missione è guidare le persone verso una maggiore consapevolezza di sé, aiutandole a gestire l'autocritica e a valorizzare le proprie potenzialità.
+
+## Locations
+- Pasturo: Via Alessandro Manzoni 24, 23818 LC, Italia
+- Como: Via Santo Garovaglio 19, 22100 CO, Italia
+- Online: Consulenze da remoto
+
+## Contact
+- Email: martadegani.md@gmail.com
+- Telefono: +39 347 391 9327
+
+## Services
+
+### Mindfulness, Rilassamento e Respirazione
+Tecniche per una vita equilibrata, offerte in format individuali o di gruppo.
+
+### Orientamento e Scelte di Carriera
+Supporto alla scelta professionale, revisione CV, ottimizzazione LinkedIn, preparazione ai colloqui di lavoro, life design e pianificazione degli obiettivi.
+
+### Percorso di Accompagnamento allo Studio
+Supporto sul metodo di studio, organizzazione, gestione del perfezionismo e pressione da performance.
+
+### Colloqui di Supporto Psicologico
+Colloqui individuali personalizzati sulle esigenze e fatiche di ciascuno.
+
+### Percorso di Potenziamento del Benessere
+Percorsi personalizzati basati su dispositivi del benessere in linea con la letteratura scientifica.
+
+## Core Values
+Empatia, Professionalità, Riservatezza
+
+## Website
+https://martadegani.it
