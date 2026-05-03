@@ -10,7 +10,6 @@ const RECIPIENT = "martadegani.md@gmail.com";
 
 export default function ContactForm() {
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
   const [messaggio, setMessaggio] = useState("");
   const [subject, setSubject] = useState("Richiesta informazioni");
@@ -21,24 +20,19 @@ export default function ContactForm() {
     const service = params.get("service");
     if (service === "Prenota colloquio") {
       setSubject("Prenotazione colloquio conoscitivo");
-      setMessaggio("Buongiorno,\n\nvorrei prenotare un colloquio conoscitivo.\n\n");
+      setMessaggio("Ti contatto per prenotare un colloquio conoscitivo.\n\n");
     } else if (service) {
       setSubject(`Informazioni su: ${service}`);
-      setMessaggio(`Buongiorno,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
+      setMessaggio(`Ti contatto per avere maggiori informazioni riguardo al percorso: "${service}".\n\n`);
     }
   }, []);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const body = [
-      `Nome: ${nome}`,
-      `Email: ${email}`,
-      telefono ? `Telefono: ${telefono}` : null,
-      ``,
-      messaggio,
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
+    const intro = telefono
+      ? `Buongiorno,\nMi chiamo ${nome} e il mio numero è ${telefono}.\n`
+      : `Buongiorno,\nMi chiamo ${nome}.\n`;
+    const body = `${intro}\n${messaggio}`;
 
     const mailto = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
@@ -62,35 +56,19 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label className="block text-sm font-medium text-brand-charcoal/70 mb-1.5" htmlFor="nome">
-            Nome *
-          </label>
-          <input
-            id="nome"
-            type="text"
-            required
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            placeholder="Il tuo nome"
-            className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-white text-brand-charcoal placeholder-brand-charcoal/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-brand-charcoal/70 mb-1.5" htmlFor="email">
-            Email *
-          </label>
-          <input
-            id="email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="la.tua@email.it"
-            className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-white text-brand-charcoal placeholder-brand-charcoal/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition"
-          />
-        </div>
+      <div>
+        <label className="block text-sm font-medium text-brand-charcoal/70 mb-1.5" htmlFor="nome">
+          Nome *
+        </label>
+        <input
+          id="nome"
+          type="text"
+          required
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          placeholder="Il tuo nome"
+          className="w-full px-4 py-3 rounded-xl border border-brand-sage/20 bg-white text-brand-charcoal placeholder-brand-charcoal/30 focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition"
+        />
       </div>
       <div>
         <label className="block text-sm font-medium text-brand-charcoal/70 mb-1.5" htmlFor="telefono">
