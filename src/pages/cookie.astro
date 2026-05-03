@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Cookie Policy | Marta Degani Psicologa"
+  description="Informativa sull'uso dei cookie sul sito martadegani.it, ai sensi del GDPR e delle Linee guida del Garante."
+>
+  <Header />
+  <main class="pt-32 pb-24 bg-brand-beige">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h1 class="text-4xl font-serif font-bold text-brand-charcoal mb-4">Cookie Policy</h1>
+      <p class="text-brand-charcoal/50 text-sm mb-12">Ultimo aggiornamento: maggio 2025</p>
+
+      <div class="prose prose-stone max-w-none space-y-8 text-brand-charcoal/80 leading-relaxed">
+
+        <section>
+          <h2 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">Cosa sono i cookie</h2>
+          <p>
+            I cookie sono piccoli file di testo che i siti web salvano nel browser dell'utente durante la
+            navigazione. Consentono al sito di ricordare informazioni tra una visita e l'altra e di raccogliere
+            dati statistici sull'utilizzo.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">Cookie utilizzati da questo sito</h2>
+
+          <h3 class="text-lg font-bold text-brand-charcoal mb-3 mt-6">Cookie tecnici (sempre attivi)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-brand-sage/10">
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Nome</th>
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Finalità</th>
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Durata</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-3 border border-brand-sage/20 font-mono">md_cookie_consent</td>
+                  <td class="p-3 border border-brand-sage/20">Memorizza la scelta dell'utente sui cookie analitici</td>
+                  <td class="p-3 border border-brand-sage/20">Permanente (localStorage)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold text-brand-charcoal mb-3 mt-8">Cookie analitici (solo previo consenso)</h3>
+          <p class="mb-3">
+            Se l'utente accetta i cookie analitici tramite il banner, il sito attiva Google Analytics 4,
+            un servizio di analisi statistica fornito da Google LLC. I dati raccolti sono anonimi e
+            aggregati; non consentono l'identificazione dell'utente.
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-brand-sage/10">
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Nome</th>
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Fornitore</th>
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Finalità</th>
+                  <th class="text-left p-3 font-semibold border border-brand-sage/20">Durata</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-3 border border-brand-sage/20 font-mono">_ga</td>
+                  <td class="p-3 border border-brand-sage/20">Google Analytics</td>
+                  <td class="p-3 border border-brand-sage/20">Distingue gli utenti univoci</td>
+                  <td class="p-3 border border-brand-sage/20">2 anni</td>
+                </tr>
+                <tr>
+                  <td class="p-3 border border-brand-sage/20 font-mono">_ga_*</td>
+                  <td class="p-3 border border-brand-sage/20">Google Analytics</td>
+                  <td class="p-3 border border-brand-sage/20">Mantiene lo stato della sessione</td>
+                  <td class="p-3 border border-brand-sage/20">2 anni</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-sm">
+            Informativa privacy di Google:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-brand-sage hover:underline">
+              policies.google.com/privacy
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">Come gestire o revocare il consenso</h2>
+          <p>
+            Puoi modificare la tua scelta in qualsiasi momento cancellando la voce <code class="bg-brand-sage/10 px-1 rounded">md_cookie_consent</code>
+            dal localStorage del browser (Strumenti per sviluppatori → Application → Local Storage → martadegani.it)
+            e ricaricando la pagina: il banner apparirà nuovamente.
+          </p>
+          <p class="mt-3">
+            In alternativa, puoi disabilitare i cookie direttamente dalle impostazioni del tuo browser:
+          </p>
+          <ul class="list-disc list-inside space-y-1 mt-2">
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" class="text-brand-sage hover:underline">Google Chrome</a></li>
+            <li><a href="https://support.mozilla.org/it/kb/Gestione-dei-cookie" target="_blank" rel="noopener" class="text-brand-sage hover:underline">Mozilla Firefox</a></li>
+            <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener" class="text-brand-sage hover:underline">Safari</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-serif font-bold text-brand-charcoal mb-4">Contatti</h2>
+          <p>
+            Per qualsiasi domanda relativa a questa Cookie Policy, scrivere a{" "}
+            <a href="mailto:martadegani.md@gmail.com" class="text-brand-sage hover:underline">martadegani.md@gmail.com</a>.
+            Consulta anche la{" "}
+            <a href="/privacy" class="text-brand-sage hover:underline">Privacy Policy</a>.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

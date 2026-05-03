@@ -31,23 +31,6 @@ const services = [
   },
 ];
 
-const servicesSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": services.map((service, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Service",
-      "name": service.title,
-      "description": service.description,
-      "provider": {
-        "@type": "Physician",
-        "name": "Marta Degani"
-      }
-    }
-  }))
-});
 ---
 
 <section id="servizi" class="py-24 bg-brand-beige/50">
@@ -77,8 +60,9 @@ const servicesSchema = JSON.stringify({
             </p>
             <div class="mt-8">
               <a
-                href={`mailto:martadegani.md@gmail.com?subject=${encodeURIComponent(`Informazioni su: ${service.title}`)}&body=${encodeURIComponent(`Buongiorno,\n\nvorrei avere maggiori informazioni riguardo al percorso: "${service.title}".\n\n`)}`}
-                class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
+                href={`/?service=${encodeURIComponent(service.title)}#contatti`}
+                class="text-brand-sage font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300 track-service-cta"
+                data-service={service.title}
               >
                 Contattami
                 <svg
@@ -177,4 +161,16 @@ const servicesSchema = JSON.stringify({
     }
   ]
 }
+</script>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>(".track-service-cta").forEach((el) => {
+    el.addEventListener("click", () => {
+      (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.(
+        "event",
+        "service_interest",
+        { service_name: el.dataset.service }
+      );
+    });
+  });
 </script>

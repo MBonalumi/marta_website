@@ -9,49 +9,6 @@ interface Props {
 
 const { title, description = "Marta Degani - Psicologa per il benessere. Consulenza psicologica a Como, Pasturo e Online.", lang = 'it' } = Astro.props;
 
-const businessSchema = `
-{
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  "name": "Marta Degani",
-  "medicalSpecialty": "Psychology",
-  "url": "https://martadegani.it",
-  "email": "martadegani.md@gmail.com",
-  "telephone": "+393473919327",
-  "areaServed": [
-    { "@type": "Place", "name": "Como" },
-    { "@type": "Place", "name": "Pasturo (LC)" },
-    { "@type": "Place", "name": "Online" }
-  ],
-  "image": "https://martadegani.it/images/martadegani-psicologa-valsassina.webp",
-  "serviceType": [
-    "Mindfulness e Rilassamento",
-    "Orientamento e Scelte di Carriera",
-    "Percorso di Accompagnamento allo Studio",
-    "Colloqui di Supporto Psicologico",
-    "Percorso di Potenziamento del Benessere"
-  ],
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Alessandro Manzoni 24",
-      "addressLocality": "Pasturo",
-      "addressRegion": "LC",
-      "postalCode": "23818",
-      "addressCountry": "IT"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Santo Garovaglio 19",
-      "addressLocality": "Como",
-      "addressRegion": "CO",
-      "postalCode": "22100",
-      "addressCountry": "IT"
-    }
-  ],
-  "knowsLanguage": "it"
-}
-`;
 ---
 
 <!doctype html>
@@ -63,9 +20,26 @@ const businessSchema = `
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href="https://martadegani.it" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://martadegani.it" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://martadegani.it/images/martadegani-psicologa-valsassina.webp" />
+		<meta property="og:locale" content="it_IT" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/Playfair-400.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" as="image" href="/images/sfondo-natura-pasturo-como.webp" fetchpriority="high" />
+		<!-- Google tag (gtag.js) -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('consent', 'default', { analytics_storage: 'denied' });
+			gtag('js', new Date());
+			gtag('config', 'G-GMW1MHJDZL');
+		</script>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GMW1MHJDZL"></script>
 		<!-- Schema.org Physician markup -->
 <script type="application/ld+json">
 {
