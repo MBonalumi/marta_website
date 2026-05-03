@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xojreqaa";
-
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
   }
 }
+
+const RECIPIENT = "martadegani.md@gmail.com";
 
 export default function ContactForm() {
   const [nome, setNome] = useState("");
@@ -14,7 +14,7 @@ export default function ContactForm() {
   const [telefono, setTelefono] = useState("");
   const [messaggio, setMessaggio] = useState("");
   const [subject, setSubject] = useState("Richiesta informazioni");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -28,24 +28,22 @@ export default function ContactForm() {
     }
   }, []);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ nome, email, telefono, _subject: subject, messaggio }),
-      });
-      if (res.ok) {
-        setStatus("success");
-        window.gtag?.("event", "contact_form_submit");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const body = [
+      `Nome: ${nome}`,
+      `Email: ${email}`,
+      telefono ? `Telefono: ${telefono}` : null,
+      ``,
+      messaggio,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+    const mailto = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    window.gtag?.("event", "contact_form_submit");
+    setStatus("success");
   }
 
   if (status === "success") {
@@ -56,8 +54,8 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-serif font-bold text-brand-charcoal">Messaggio inviato!</h3>
-        <p className="text-brand-charcoal/70">Ti risponderò il prima possibile per fissare un primo colloquio conoscitivo.</p>
+        <h3 className="text-xl font-serif font-bold text-brand-charcoal">Client email aperto!</h3>
+        <p className="text-brand-charcoal/70">Trovi il messaggio pronto nel tuo programma di posta. Invialo da lì per completare il contatto.</p>
       </div>
     );
   }
@@ -122,26 +120,14 @@ export default function ContactForm() {
         />
       </div>
 
-      {status === "error" && (
-        <p className="text-sm text-red-600">
-          Si è verificato un errore. Puoi scrivermi direttamente a{" "}
-          <a href="mailto:martadegani.md@gmail.com" className="underline">
-            martadegani.md@gmail.com
-          </a>.
-        </p>
-      )}
-
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="w-full bg-brand-charcoal text-white py-4 rounded-2xl font-bold hover:bg-opacity-90 disabled:opacity-60 transition-all shadow-xl shadow-brand-charcoal/10 flex items-center justify-center gap-3"
+        className="w-full bg-brand-charcoal text-white py-4 rounded-2xl font-bold hover:bg-opacity-90 transition-all shadow-xl shadow-brand-charcoal/10 flex items-center justify-center gap-3"
       >
-        {status === "sending" ? "Invio in corso…" : "Invia messaggio"}
-        {status !== "sending" && (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        )}
+        Invia messaggio
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
       </button>
 
       <p className="text-xs text-brand-charcoal/40 text-center">
